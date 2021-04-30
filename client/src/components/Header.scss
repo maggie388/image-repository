@@ -1,0 +1,29 @@
+@use '../partials/placeholders' as *;
+
+.header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100vw;
+    height: 80px;
+    padding: 0 2rem;
+    color: white;
+    background-color: cadetblue;
+
+    &__title {
+        @extend %anchor-tag-reset;
+        // text-decoration: none;
+    }
+
+    &__list {
+        list-style-type: none;
+    }
+
+    &__list-item {
+        @extend %anchor-tag-reset;
+
+        &:hover {
+            text-decoration: underline;
+        }
+    }
+}
