@@ -1,3 +1,4 @@
+@use '../partials/variables' as *;
 @use '../partials/placeholders' as *;
 
 .header {
@@ -5,23 +6,21 @@
     justify-content: space-between;
     align-items: center;
     width: 100vw;
-    height: 80px;
-    padding: 0 2rem;
+    height: $header-height;
+    padding: 0 $page-margin;
     color: white;
     background-color: cadetblue;
 
     &__title {
         @extend %anchor-tag-reset;
-        // text-decoration: none;
     }
 
     &__list {
         list-style-type: none;
     }
 
-    &__list-item {
-        @extend %anchor-tag-reset;
-
+    &__button {
+        @extend %transparent-button;
         &:hover {
             text-decoration: underline;
         }

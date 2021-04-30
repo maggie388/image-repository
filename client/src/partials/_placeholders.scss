@@ -1,4 +1,31 @@
+%flex-center {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 %anchor-tag-reset {
     text-decoration: none;
     color: inherit;
+    cursor: pointer;
+}
+
+%transparent-button {
+    @extend %flex-center;
+    width: fit-content;
+    border: none;
+    outline: none;
+    color: inherit;
+    background-color: transparent;
+    cursor: pointer;
+}
+
+%block-button {
+    @extend %flex-center;
+    border: none;
+    outline: none;
+    // border: 1px solid cadetblue;
+    border-radius: 5px;
+    background-color: rgba(95, 158, 160, .2);
+    box-shadow: 0 0 2px 1px rgba(95, 158, 160, .5);
 }

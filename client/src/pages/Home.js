@@ -1,9 +1,17 @@
+import './Home.scss';
 
-const Home = () => {
+
+// components
+import LoginModal from '../components/LoginModal';
+
+const Home = ({ showLoginModal, setShowLoginModal }) => {
     return (
-        <main>
-            <h1> home page</h1>
-        </main>
+        <>
+            <main className='home' onClick={() => setShowLoginModal(false)}>
+                <h1> home page</h1>
+            </main>
+            {showLoginModal && <LoginModal />}
+        </>
     );
 };
 

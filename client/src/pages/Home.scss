@@ -1,0 +1,5 @@
+@use '../partials/variables' as *;
+.home {
+    padding: 0 $page-margin;
+    min-height: calc(100vh - #{$header-height});
+}
