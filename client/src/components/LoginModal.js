@@ -11,7 +11,7 @@ const LoginModal = () => {
         <div className='login-modal'>
             <h3 className='login-modal__title'>Login</h3>
             <p className='login-modal__phrase'>Welcome Back</p>
-            <a href={`${SERVER_URL}/api/auth/login/google`} className='login-modal__button'>
+            <a className='login-modal__button' href={`${SERVER_URL}/auth/login/google`}>
                 <img className='login-modal__google-logo' src={googleLogo} alt='Google logo' />
                 Login with Google
             </a>

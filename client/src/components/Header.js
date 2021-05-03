@@ -12,7 +12,7 @@ const Header = ({ isLoggedIn, setShowLoginModal }) => {
                 <ul className='header__list'>
                     <li className='header__list-item'>
                         {isLoggedIn ?
-                        <a className='header__button' href={`${SERVER_URL}/api/auth/logout`}>Sign Out</a> :
+                        <a className='header__button' href={`${SERVER_URL}/auth/logout`}>Sign Out</a> :
                         <button className='header__button' onClick={() => setShowLoginModal(true)}>Login</button>}
                     </li>
                 </ul>

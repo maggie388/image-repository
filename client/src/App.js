@@ -17,17 +17,15 @@ function App() {
 	const [showLoginModal, setShowLoginModal] = useState(false);
 
 	useEffect(() => {
-		console.log(SERVER_URL);
 		axios
-			.get(`${SERVER_URL}/api/auth/check-auth`, { withCredentials: true })
+			.get(`${SERVER_URL}/auth/check-auth`, { withCredentials: true })
 			.then((response) => {
-				console.log(response);
 				setIsLoggedIn(true);
 			})
 			.catch((error)=> {
-				console.log(error);
+				setIsLoggedIn(false);
 			})
-	})
+	}, []);
 
 	return (
 		<div className="app">
