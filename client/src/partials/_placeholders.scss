@@ -24,8 +24,14 @@
     @extend %flex-center;
     border: none;
     outline: none;
-    // border: 1px solid cadetblue;
+    border: 1px solid rgba(95, 158, 160, 0);
     border-radius: 5px;
     background-color: rgba(95, 158, 160, .2);
     box-shadow: 0 0 2px 1px rgba(95, 158, 160, .5);
+    cursor: pointer;
+
+    &:hover {
+        border: 1px solid cadetblue;
+        background-color:  rgba(95, 158, 160, .5);
+    }
 }

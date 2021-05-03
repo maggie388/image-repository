@@ -9,37 +9,43 @@ passport.use(new GoogleStrategy({
     clientSecret: process.env.GOOGLE_CLIENT_SECRET,
     callbackURL: `${process.env.SERVER_URL}/api/auth/return`
   },
-  function(accessToken, refreshToken, profile, cb) {
+  (accessToken, refreshToken, profile, done) => {
+      console.log(profile);
       Users
-        .where({ googleId: profile.id })
+        .where({ google_id: profile.id })
         .fetch({ require: false })
         .then((user) => {
             if (!user) {
                 console.log('no user');
                 new Users({
-                    googleId: profile.id
+                    google_id: profile.id,
+                    first_name: profile.name.givenName,
+                    last_name: profile.name.familyName,
+                    email: profile.emails[0].value
                 })
                 .save()
                 .then((user) => {
                     console.log('user added')
-                    return cb(null, user);
+                    return done(null, user);
                 })
             } else {
-                return cb(null, user);
+                return done(null, user);
             }
         })
-    // Users.findOrCreate({ googleId: profile.id }, function (err, user) {
-    //   return cb(err, user);
-    // });
   }
 ));
 
-passport.serializeUser(function (user, cb) {
-    cb(null, user);
+passport.serializeUser((user, done) => {
+    done(null, user.id);
 });
 
-passport.deserializeUser(function (obj, cb) {
-    cb(null, obj);
+passport.deserializeUser((id, done) => {
+    Users
+        .where({ id })
+        .fetch()
+        .then((user) => {
+            done(null, user);
+        })
 });
 
 module.exports = passport;

@@ -1,13 +1,17 @@
-const TABLE_NAME = 'users';
+const TABLE_NAME = 'images';
 
 exports.up = (knex) => {
     return knex.schema.createTable(TABLE_NAME, table => {
         table.increments('id').primary();
-        table.string('google_id').unique();
-        table.string('first_name');
-        table.string('last_name');
-        table.string('email').unique();
-        table.string('password');
+        table
+            .integer('user_id')
+            .unsigned()
+            .notNullable()
+            .references('id')
+            .inTable('users')
+            .onUpdate('CASCADE')
+            .onDelete('CASCADE');
+        table.string('filename').unique().notNullable();
         table.timestamp('created_at').defaultTo(knex.fn.now());
         table.timestamp('updated_at').defaultTo(knex.fn.now());
     });

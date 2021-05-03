@@ -27,6 +27,7 @@
     }
 
     &__button {
+        @extend %anchor-tag-reset;
         @extend %block-button;
         padding: 0.5rem 4rem;
     }

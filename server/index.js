@@ -5,7 +5,7 @@ const app = express();
 
 const PORT = process.env.PORT || 8080;
 
-app.use(require('cors')());
+app.use(require('cors')({ origin: true, credentials: true }));
 app.use(require('morgan')('dev'));
 app.use(require('cookie-parser')());
 app.use(express.json());
@@ -16,7 +16,7 @@ const passport = require('./passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api/auth', require('./routes/loginRoute'))
+app.use('/api/auth', require('./routes/authRoute'))
 
 app.listen(PORT, () => {
     console.log(`Listening on PORT ${PORT}`);
