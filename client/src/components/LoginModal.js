@@ -1,7 +1,7 @@
 import './LoginModal.scss';
 
 // assets
-import googleLogo from '../assets/images/google-logo.png';
+import googleLogo from '../assets/icons/google-logo.png';
 
 const LoginModal = () => {
     return (
