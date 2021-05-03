@@ -8,8 +8,8 @@ const Header = ({ isLoggedIn, setShowLoginModal }) => {
     const PrivateMenuItems = () => {
         return (
             <>
-                <li className='header__list-item'>Upload an Image</li>
-                <li className='header__list-item'><a className='header__button' href={`${SERVER_URL}/auth/logout`}>Sign Out</a></li>
+                <li className='header__list-item'><button className='header__button'>Upload an Image</button></li>
+                <li className='header__list-item'><a className='header__link' href={`${SERVER_URL}/auth/logout`}>Sign Out</a></li>
             </>
         );
     };

@@ -16,13 +16,22 @@
     }
 
     &__list {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
         list-style-type: none;
+        font-size: 1rem;
+    }
+
+    &__list-item {
+        margin-left: 0.75rem;
+    }
+
+    &__link {
+        @extend %anchor-tag-reset;
     }
 
     &__button {
         @extend %transparent-button;
-        &:hover {
-            text-decoration: underline;
-        }
     }
 }
