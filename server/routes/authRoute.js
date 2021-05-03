@@ -15,7 +15,7 @@ router.get('/return',
 );
 
 router.get('/check-auth', (req, res) => {
-    console.log('user session: ', req.user);
+    // TO DO: Don't send the entire user object, just select information
     if (req.user === undefined) return res.status(401).send('unauthorized');
     res.status(200).json(req.user);
 })

@@ -16,7 +16,8 @@ const passport = require('./passport');
 app.use(passport.initialize());
 app.use(passport.session());
 
-app.use('/api/auth', require('./routes/authRoute'))
+app.use('/api/auth', require('./routes/authRoute'));
+app.use('api/upload', require('./routes/uploadRoute'));
 
 app.listen(PORT, () => {
     console.log(`Listening on PORT ${PORT}`);
